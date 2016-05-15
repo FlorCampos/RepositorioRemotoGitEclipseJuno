@@ -6,10 +6,16 @@ public class TestWhile {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("saludos");
-		System.out.println("prueba");
-		System.out.println("guradar");
+
+		int i=0;
+		int j=6;
+		
+		while(i<0){
+			i++;
+			j++;
+		}
+		
+		System.out.println(j);
 
 	}
 
