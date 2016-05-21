@@ -274,7 +274,7 @@ public class Main {
                 System.out.println("No se encontró");
             }
  
-            //close db connection
+            
             dbUtilities.DisconnectFromDB();
         } catch (SQLException ex) {
             System.out.println("Ha ocurrido el siguiente error: " + ex.getMessage());
