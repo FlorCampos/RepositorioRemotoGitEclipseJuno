@@ -57,13 +57,21 @@ private static void desplegarMenu() throws SQLException{
 		        System.out.println("Ingrese número de DNI: ");
 		        dni = userInput.next();
 		      
+		        String telefono;
+		        System.out.println("Ingrese fono");
+		        telefono=userInput.next();
+		        
+		        String email;
+		        System.out.println("Ingrese email");
+		        email=userInput.next();
+		        
 		        String pais;
 		        System.out.println("Ingrese país");
 		        pais=userInput.next();
 		        
 		        BdUtilitarios dbUtilities = new BdUtilitarios();
 		        
-		        String sql_stmt = "INSERT INTO persona (name,dni,pais) VALUES ('" + name + "','" + dni + "','" + pais + "')";
+		        String sql_stmt = "INSERT INTO persona (name,dni,telefono,email,pais) VALUES ('" + name + "','" + dni + "','" + telefono + "','" + email + "','" + pais + "')";
 		        
 		        dbUtilities.ExecuteSQLStatement(sql_stmt);
 		        
@@ -82,7 +90,7 @@ private static void desplegarMenu() throws SQLException{
 		       try {
 		            BdUtilitarios dbUtilities1 = new BdUtilitarios();
 		 
-		            String sql_stmt1 = "SELECT id, name, dni,pais FROM persona";
+		            String sql_stmt1 = "SELECT id, name, dni,telefono,email,pais FROM persona";
 		            ResultSet resultSet = dbUtilities1.ReadRecords(sql_stmt1);
 		 
 		            // process query results
@@ -93,14 +101,14 @@ private static void desplegarMenu() throws SQLException{
 		                System.out.print("Listando");
 		 
 		                for (int i = 1; i <= numberOfColumns; i++) {
-		                    System.out.print(metaData.getColumnName(i));
+		                    System.out.print("    "+metaData.getColumnName(i));
 		                   
 		                }
 		                System.out.println();
 		 
 		                do {
 		                    for (int i = 1; i <= numberOfColumns; i++) {
-		                        System.out.print(resultSet.getObject(i));
+		                        System.out.print("         " + resultSet.getObject(i));
 		                    }
 		                    System.out.println();
 		                } while (resultSet.next());
@@ -237,13 +245,21 @@ private static void desplegarMenu() throws SQLException{
         System.out.println("Ingrese dni: ");
         dni = userInput.next();
         
+        String telefono;
+        System.out.println("Ingrese telefono: ");
+        telefono = userInput.next();
+        
+        String email;
+        System.out.println("Ingrese email: ");
+        email = userInput.next();
+        
         String pais;
         System.out.println("Ingrese pais: ");
         pais = userInput.next();
  
         BdUtilitarios dbUtilities = new BdUtilitarios();
  
-        String sql_stmt = "UPDATE persona SET name = '" + name + "',dni = '" + dni + "',pais= '"+ pais +"' WHERE id = " + customer_id;
+        String sql_stmt = "UPDATE persona SET name = '" + name + "',dni = '" + dni + "',telefono = '" + telefono + "',email='" + email + "',pais= '"+ pais +"' WHERE id = " + customer_id;
  
         dbUtilities.ExecuteSQLStatement(sql_stmt);
  
